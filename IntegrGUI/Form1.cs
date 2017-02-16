@@ -124,11 +124,16 @@ namespace IntegrGUI
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-
-            label3.Text = e.Result.ToString(); ;
+            try
+            {
+                label3.Text = e.Result.ToString(); ;
                 statusLabel.Text = "Вычисление завершено";
-               
             }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+         }
 
         private void Cancel_Btn_Click(object sender, EventArgs e)
         {
